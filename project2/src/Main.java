@@ -112,14 +112,20 @@ public class Main {
         input.nextLine();
 
         if (taskNumber > 0 && taskNumber <= taskList.size()) {
-            System.out.println("What's the name of the task?");
-            String title = input.nextLine();
-            System.out.println("Description of the your task.");
-            String desc = input.nextLine();
-            System.out.println("What Priority is it?(0 [lowest] - 5 [highest])");
-            int prio = input.nextInt();
-            taskList.add(new Tasks(title, desc, prio));
-            System.out.println("Task updated successfully.\n");
+            Tasks task = taskList.get(taskNumber - 1);
+
+            System.out.println("Enter the new title of the task:");
+            String newTitle = input.nextLine();
+            task.setTitle(newTitle);
+
+            System.out.println("Enter the new description of the task:");
+            String newDesc = input.nextLine();
+            task.setDesc(newDesc);
+
+            System.out.println("Enter the new priority (0 [lowest] - 5 [highest]):");
+            int newPrio = input.nextInt();
+            task.setPrio(newPrio);
+
         } else {
             System.out.println("Invalid task number.\n");
         }
